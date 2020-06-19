@@ -1,0 +1,817 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <variable constant="0" name="direcao" sid="936480340817227" static="0" type="number">0</variable>
+        <variable constant="0" name="lugar" sid="938939914837051" static="0" type="number">0</variable>
+        <variable constant="0" name="CheckPY" sid="233123932974166" static="0" type="number">333</variable>
+        <variable constant="0" name="CheckPX" sid="508589702681547" static="0" type="number">129</variable>
+        <variable constant="0" name="TempoSegundos" sid="287910747862678" static="0" type="number">59</variable>
+        <variable constant="0" name="TempoMinutos" sid="304790741506646" static="0" type="number">1</variable>
+        <variable constant="0" name="QTD_GELO" sid="503547743068595" static="0" type="number">0</variable>
+        <event-block sid="996312483942093">
+            <conditions>
+                <condition id="2" name="Key is down" sid="154388503004778" type="Keyboard">
+                    <param id="0" name="Key">37</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="7" name="Set mirrored" sid="585341581742945" type="Player">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="846706909134208" type="System">
+                    <param id="0" name="Variable">direcao</param>
+                    <param id="1" name="Value">180</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="974176446872763">
+            <conditions>
+                <condition id="2" name="Key is down" sid="235687323124576" type="Keyboard">
+                    <param id="0" name="Key">39</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="7" name="Set mirrored" sid="853889300953387" type="Player">
+                    <param id="0" name="State">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="737930769522536" type="System">
+                    <param id="0" name="Variable">direcao</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="509048765443812">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="372392164755133" type="Player">
+                    <param id="0" name="Object">CHAOINVISIVEL</param>
+                </condition>
+                <condition id="2" name="Key is down" sid="389172953058597" type="Keyboard">
+                    <param id="0" name="Key">65</param>
+                </condition>
+                <condition id="-5" name="Compare width" sid="436736680985428" type="lifeGELO">
+                    <param id="0" name="Comparison">5</param>
+                    <param id="1" name="Width">(253/21)+2</param>
+                </condition>
+                <condition behavior="Platform" id="4" inverted="1" name="Is falling" sid="163542400685222" type="Player" />
+                <condition id="2" inverted="1" name="Key is down" sid="761248225588530" type="Keyboard">
+                    <param id="0" name="Key">38</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="972696833800827" type="System">
+                    <param id="0" name="Object to create">GeloChao</param>
+                    <param id="1" name="Layer">6</param>
+                    <param id="2" name="X">Player.X + (Player.Height /2) + 7</param>
+                    <param id="3" name="Y">Player.Y + (Player.Height /2 )  + 7</param>
+                </action>
+                <action id="-11" name="Subtract from" sid="835367081491154" type="System">
+                    <param id="0" name="Variable">QTD_GELO</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action behavior="Solid" id="0" name="Set enabled" sid="850674927124631" type="ProtetorDeBuracos">
+                    <param id="0" name="State">1</param>
+                </action>
+                <action id="4" name="Set animation" sid="710486722913606" type="Player">
+                    <param id="0" name="Animation">&quot;Gelo&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="-5" name="Set width" sid="518246274500066" type="lifeGELO">
+                    <param id="0" name="Width">lifeGelo.Width - (253/21)</param>
+                </action>
+                <action id="-16" name="Wait" sid="616067556837499" type="System">
+                    <param id="0" name="Seconds">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="946460695877482">
+            <conditions>
+                <condition behavior="Platform" id="0" name="Is moving" sid="274598722750200" type="Player" />
+                <condition id="2" inverted="1" name="Key is down" sid="839755835553392" type="Keyboard">
+                    <param id="0" name="Key">65</param>
+                </condition>
+                <condition id="2" inverted="1" name="Key is down" sid="289207011615139" type="Keyboard">
+                    <param id="0" name="Key">38</param>
+                </condition>
+                <condition id="2" inverted="1" name="Key is down" sid="832691645132659" type="Keyboard">
+                    <param id="0" name="Key">83</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="841374381860841" type="Player">
+                    <param id="0" name="Animation">&quot;Move&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="918028770383164">
+            <conditions>
+                <condition behavior="Platform" id="7" name="On stopped" sid="408698827217638" type="Player" />
+                <condition id="2" inverted="1" name="Key is down" sid="499426327984591" type="Keyboard">
+                    <param id="0" name="Key">38</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="964200516043786" type="Player">
+                    <param id="0" name="Animation">&quot;Parado&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="842856206494679">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="708296602877312" type="System">
+                    <param id="0" name="Interval (seconds)">2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="135548180911170" type="GeloChao">
+                    <param id="0" name="Animation">&quot;sair&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="303656083579699">
+            <conditions>
+                <condition behavior="Platform" id="3" name="Is jumping" sid="287950455661599" type="Player" />
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="582588390596960" type="Player">
+                    <param id="0" name="Animation">&quot;Gay&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="491463491959228">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="723174576362421" type="Player">
+                    <param id="0" name="Object">GeloChao</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Platform" id="1" name="Set max speed" sid="596588217641073" type="Player">
+                    <param id="0" name="Max Speed">500</param>
+                </action>
+                <action behavior="Platform" id="2" name="Set acceleration" sid="703612334065460" type="Player">
+                    <param id="0" name="Acceleration">3000</param>
+                </action>
+                <action behavior="Platform" id="4" name="Set jump strength" sid="805668627525121" type="Player">
+                    <param id="0" name="Jump strength">600</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="371168703397064">
+            <conditions>
+                <condition id="3" name="Compare frame" sid="869056494398132" type="GeloChao">
+                    <param id="0" name="Comparison">0</param>
+                    <param id="1" name="Number">4</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="970583433531399" type="GeloChao" />
+                <action behavior="Platform" id="1" name="Set max speed" sid="282658427402999" type="Player">
+                    <param id="0" name="Max Speed">250</param>
+                </action>
+                <action behavior="Platform" id="2" name="Set acceleration" sid="344861447977057" type="Player">
+                    <param id="0" name="Acceleration">1200</param>
+                </action>
+                <action behavior="Platform" id="4" name="Set jump strength" sid="567900452571147" type="Player">
+                    <param id="0" name="Jump strength">480</param>
+                </action>
+                <action behavior="Platform" id="5" name="Set gravity" sid="151137988161398" type="Player">
+                    <param id="0" name="Gravity">1500</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="546152830425129">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="729969247330423" type="Player">
+                    <param id="0" name="Object">CHAOINVISIVEL</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Platform" id="1" name="Set max speed" sid="503103253189786" type="Player">
+                    <param id="0" name="Max Speed">250</param>
+                </action>
+                <action behavior="Platform" id="2" name="Set acceleration" sid="289581258452360" type="Player">
+                    <param id="0" name="Acceleration">1200</param>
+                </action>
+                <action behavior="Platform" id="4" name="Set jump strength" sid="659793250299197" type="Player">
+                    <param id="0" name="Jump strength">480</param>
+                </action>
+                <action behavior="Platform" id="5" name="Set gravity" sid="930975868108744" type="Player">
+                    <param id="0" name="Gravity">1500</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="889220489175203">
+            <conditions>
+                <condition id="2" inverted="1" name="Key is down" sid="151167400129125" type="Keyboard">
+                    <param id="0" name="Key">65</param>
+                </condition>
+                <condition id="2" inverted="1" name="Key is down" sid="830663708775624" type="Keyboard">
+                    <param id="0" name="Key">38</param>
+                </condition>
+                <condition id="2" inverted="1" name="Key is down" sid="489380374457614" type="Keyboard">
+                    <param id="0" name="Key">83</param>
+                </condition>
+                <condition behavior="Platform" id="0" inverted="1" name="Is moving" sid="217137663043480" type="Player" />
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="204450430553950" type="Player">
+                    <param id="0" name="Animation">&quot;Parado&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action behavior="Solid" id="0" name="Set enabled" sid="593273836815117" type="ProtetorDeBuracos">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action behavior="Platform" id="5" name="Set gravity" sid="685574959784896" type="Player">
+                    <param id="0" name="Gravity">1500</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="361681783936371">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="953423934217220" type="System" />
+            </conditions>
+            <actions>
+                <action behavior="Solid" id="0" name="Set enabled" sid="911855176143115" type="ProtetorDeBuracos">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action id="-9" name="Destroy" sid="744964070388611" type="GeloChao" />
+                <action id="-7" name="Set size" sid="575065975040916" type="lifeGELO">
+                    <param id="0" name="Width">253</param>
+                    <param id="1" name="Height">25</param>
+                </action>
+                <action id="-9" name="Set value" sid="336652341008813" type="System">
+                    <param id="0" name="Variable">QTD_GELO</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="694962506826821" type="System">
+                    <param id="0" name="Variable">QTD_GELO</param>
+                    <param id="1" name="Value">GeloChao.Count</param>
+                </action>
+                <action id="0" name="Play" sid="570536454175443" type="Audio">
+                    <param id="0" name="Audio file">background_music</param>
+                    <param id="2" name="Loop">1</param>
+                    <param id="3" name="Volume">-10</param>
+                    <param id="1" name="Tag (optional)">&quot;Musica&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="145406465460637">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="486270753725441" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="870236278700860" type="System">
+                    <param id="0" name="Variable">QTD_GELO</param>
+                    <param id="1" name="Value">GeloChao.Count</param>
+                </action>
+                <action id="0" name="Set text" sid="934873041776279" type="TextoColecionavel">
+                    <param id="0" name="Text">&quot;x  &quot; &amp; ColecionavelX1.Count -1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="431927982773406">
+            <conditions>
+                <condition disabled="1" id="-6" name="Every X seconds" sid="946493176914802" type="System">
+                    <param id="0" name="Interval (seconds)">0.5</param>
+                </condition>
+                <condition disabled="1" id="-14" inverted="1" name="Compare variable" sid="207006790254124" type="System">
+                    <param id="0" name="Variable">QTD_GELO</param>
+                    <param id="1" name="Comparison">2</param>
+                    <param id="2" name="Value">21</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action disabled="1" id="-9" name="Set value" sid="784233061262353" type="System">
+                    <param id="0" name="Variable">QTD_GELO</param>
+                    <param id="1" name="Value">qtd_gelo -1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="241564204928024">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="359472975144730" type="System">
+                    <param id="0" name="Interval (seconds)">0.02</param>
+                </condition>
+                <condition id="-5" name="Compare width" sid="451212711441314" type="lifeGELO">
+                    <param id="0" name="Comparison">2</param>
+                    <param id="1" name="Width">253</param>
+                </condition>
+                <condition id="2" inverted="1" name="Key is down" sid="660968833736800" type="Keyboard">
+                    <param id="0" name="Key">65</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-5" name="Set width" sid="522095165567216" type="lifeGELO">
+                    <param id="0" name="Width">lifeGelo.Width + 1</param>
+                </action>
+                <action id="-16" name="Wait" sid="457772143033517" type="System">
+                    <param id="0" name="Seconds">3</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="175900896959396">
+            <conditions>
+                <condition id="3" name="On key released" sid="676644112458438" type="Keyboard">
+                    <param id="0" name="Key">83</param>
+                </condition>
+                <condition id="-5" name="Compare width" sid="232143037257042" type="lifeGELO">
+                    <param id="0" name="Comparison">5</param>
+                    <param id="1" name="Width">(253/5)+2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Play" sid="186600830263031" type="Audio">
+                    <param id="0" name="Audio file">Cuspe - Thiago</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="4" name="Set animation" sid="614043637364127" type="Player">
+                    <param id="0" name="Animation">&quot;Cuspe&quot;</param>
+                    <param id="1" name="From">0</param>
+                </action>
+                <action id="-5" name="Set width" sid="500272881347329" type="lifeGELO">
+                    <param id="0" name="Width">lifeGelo.Width - (253/5)</param>
+                </action>
+                <action id="-3" name="Create object" sid="640273027367984" type="System">
+                    <param id="0" name="Object to create">Tiro</param>
+                    <param id="1" name="Layer">5</param>
+                    <param id="2" name="X">Player.ImagePointX(1)</param>
+                    <param id="3" name="Y">Player.ImagePointy(1)</param>
+                </action>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="868494213536662" type="Tiro">
+                    <param id="0" name="Angle">direcao</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="249615422282476">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="617916180626595" type="Keyboard">
+                    <param id="0" name="Key">83</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="730638557584620" type="Player">
+                    <param id="0" name="Animation">&quot;BOCA&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="783021709307152">
+            <conditions>
+                <condition id="-3" inverted="1" name="Is on-screen" sid="411706239753160" type="Tiro" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="467417119178157" type="Tiro" />
+            </actions>
+        </event-block>
+        <event-block sid="160670522822689">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="762477572383174" type="Tiro">
+                    <param id="0" name="Object">inimigo</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Sine" id="0" name="Set active" sid="215915950182376" type="inimigo">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action id="0" name="Play" sid="186362378366131" type="Audio">
+                    <param id="0" name="Audio file">CongeladoFL</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="6" name="Set speed" sid="354359722886026" type="inimigo">
+                    <param id="0" name="Speed">0.5</param>
+                </action>
+                <action id="-9" name="Destroy" sid="632543709952941" type="Tiro" />
+                <action id="-3" name="Create object" sid="243288449631396" type="System">
+                    <param id="0" name="Object to create">nuvem</param>
+                    <param id="1" name="Layer">5</param>
+                    <param id="2" name="X">inimigo.X</param>
+                    <param id="3" name="Y">inimigo.Y</param>
+                </action>
+                <action id="-16" name="Wait" sid="819080774743181" type="System">
+                    <param id="0" name="Seconds">3</param>
+                </action>
+                <action id="-9" name="Destroy" sid="231164340854536" type="nuvem" />
+                <action id="0" name="Play" sid="260348294206330" type="Audio">
+                    <param id="0" name="Audio file">descongelar inimigo</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">-5</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="-3" name="Create object" sid="995253999359970" type="System">
+                    <param id="0" name="Object to create">quebrando</param>
+                    <param id="1" name="Layer">5</param>
+                    <param id="2" name="X">nuvem.X</param>
+                    <param id="3" name="Y">nuvem.y</param>
+                </action>
+                <action id="-9" name="Destroy" sid="655978882246120" type="inimigo" />
+                <action id="-16" name="Wait" sid="968434239862739" type="System">
+                    <param id="0" name="Seconds">1</param>
+                </action>
+                <action id="-9" name="Destroy" sid="795729639773399" type="quebrando" />
+            </actions>
+        </event-block>
+        <event-block sid="734603744011943">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="553604503550682" type="System" />
+            </conditions>
+            <actions>
+                <action id="-16" name="Wait" sid="641043697603957" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-9" name="Set value" sid="418046776050500" type="System">
+                    <param id="0" name="Variable">lugar</param>
+                    <param id="1" name="Value">inimigo.X</param>
+                </action>
+                <action disabled="1" id="0" name="Set text" sid="168384551190224" type="guia">
+                    <param id="0" name="Text">CheckPX &amp;&quot;  X  &quot;&amp;  CheckpY</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="333457210930296">
+            <conditions>
+                <condition id="-8" name="Compare two values" sid="389669901559169" type="System">
+                    <param id="0" name="First value">lugar</param>
+                    <param id="1" name="Comparison">2</param>
+                    <param id="2" name="Second value">inimigo.X</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="7" name="Set mirrored" sid="848731577833106" type="inimigo">
+                    <param id="0" name="State">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="746568456252618">
+            <conditions>
+                <condition id="-8" name="Compare two values" sid="424262636797395" type="System">
+                    <param id="0" name="First value">lugar</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Second value">inimigo.x</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="7" name="Set mirrored" sid="767006668448011" type="inimigo">
+                    <param id="0" name="State">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="323403793195070">
+            <conditions>
+                <condition behavior="Platform" id="5" name="On jump" sid="863736849879680" type="Player" />
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="195473202595905" type="Player">
+                    <param id="0" name="Animation">&quot;Gay&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="0" name="Play" sid="373258250185551" type="Audio">
+                    <param id="0" name="Audio file">Jump</param>
+                    <param id="2" name="Loop">1</param>
+                    <param id="3" name="Volume">-23</param>
+                    <param id="1" name="Tag (optional)">&quot;Jump&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="173164061177822" type="System">
+                    <param id="0" name="Seconds">0.5</param>
+                </action>
+                <action id="1" name="Set looping" sid="220245811960925" type="Audio">
+                    <param id="0" name="Tag">&quot;Jump&quot;</param>
+                    <param id="1" name="State">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="591909958568330">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="418933125371515" type="Player">
+                    <param id="0" name="Object">inimigo</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-7" name="Set size" sid="423757452095246" type="Morte">
+                    <param id="0" name="Width">Player.Width</param>
+                    <param id="1" name="Height">Player.Height</param>
+                </action>
+                <action id="-3" name="Create object" sid="522717065017560" type="System">
+                    <param id="0" name="Object to create">Morte</param>
+                    <param id="1" name="Layer">5</param>
+                    <param id="2" name="X">Player.X</param>
+                    <param id="3" name="Y">Player.y</param>
+                </action>
+                <action id="-9" name="Destroy" sid="141675395478730" type="Player" />
+            </actions>
+        </event-block>
+        <event-block sid="573987485816482">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="678192676198053" type="Tiro">
+                    <param id="0" name="Object">nuvem</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="359863621423182" type="Tiro" />
+            </actions>
+        </event-block>
+        <event-block sid="942738177191301">
+            <conditions>
+                <condition id="2" name="Key is down" sid="542025315579638" type="Keyboard">
+                    <param id="0" name="Key">40</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Jumpthru" id="0" name="Set enabled" sid="865296531282235" type="plataforma2">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action id="-2" name="Set Y" sid="990054235659584" type="Player">
+                    <param id="0" name="Y">Player.Y - 1</param>
+                </action>
+                <action id="-16" name="Wait" sid="905681508179958" type="System">
+                    <param id="0" name="Seconds">0.3</param>
+                </action>
+                <action behavior="Jumpthru" id="0" name="Set enabled" sid="774177319090447" type="plataforma2">
+                    <param id="0" name="State">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="468437281170085">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="866087720357282" type="System" />
+            </conditions>
+            <actions>
+                <action id="-16" name="Wait" sid="229637483161845" type="System">
+                    <param id="0" name="Seconds">1</param>
+                </action>
+                <action id="0" name="Play" sid="678289459938569" type="Audio">
+                    <param id="0" name="Audio file">PortaGeladeiraAbrindo</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="4" name="Set animation" sid="100653862932125" type="Geladeira">
+                    <param id="0" name="Animation">&quot;Abrir&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="-16" name="Wait" sid="576498669696902" type="System">
+                    <param id="0" name="Seconds">0.5</param>
+                </action>
+                <action disabled="1" id="-3" name="Set position" sid="719360306820357" type="Player">
+                    <param id="0" name="X">Geladeira.ImagePointX(1)</param>
+                    <param id="1" name="Y">Geladeira.ImagePointY(1)</param>
+                </action>
+                <action id="-3" name="Create object" sid="654999702988214" type="System">
+                    <param id="0" name="Object to create">Player</param>
+                    <param id="1" name="Layer">5</param>
+                    <param id="2" name="X">geladeira.ImagePointX(1)</param>
+                    <param id="3" name="Y">geladeira.ImagePointY(1)</param>
+                </action>
+                <action id="4" name="Set animation" sid="449818156398818" type="Geladeira">
+                    <param id="0" name="Animation">&quot;Normal&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="909686686966165">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="152213103240518" type="Keyboard">
+                    <param id="0" name="Key">65</param>
+                </condition>
+                <condition id="1" name="Is overlapping another object" sid="786196561056409" type="Player">
+                    <param id="0" name="Object">CHAOINVISIVEL</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Play" sid="721227980250781" type="Audio">
+                    <param id="0" name="Audio file">GeloChao</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="462819682600248">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="788242779204576" type="Player">
+                    <param id="0" name="Object">ColecionavelX1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Play" sid="240372323102284" type="Audio">
+                    <param id="0" name="Audio file">colecionavel</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="-9" name="Destroy" sid="831472688591336" type="ColecionavelX1" />
+            </actions>
+        </event-block>
+        <event-block sid="739591667747752">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="522055496616456" type="Player">
+                    <param id="0" name="Object">Espinhos</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-7" name="Set size" sid="791867539703210" type="Morte">
+                    <param id="0" name="Width">Player.Width</param>
+                    <param id="1" name="Height">Player.Height</param>
+                </action>
+                <action id="-3" name="Create object" sid="472506589975382" type="System">
+                    <param id="0" name="Object to create">Morte</param>
+                    <param id="1" name="Layer">5</param>
+                    <param id="2" name="X">Player.X</param>
+                    <param id="3" name="Y">Player.y</param>
+                </action>
+                <action id="-9" name="Destroy" sid="179716744278674" type="Player" />
+            </actions>
+        </event-block>
+        <event-block sid="376829854810819">
+            <conditions>
+                <condition id="-19" name="On destroyed" sid="499725083878434" type="Player" />
+                <condition id="-14" inverted="1" name="Compare variable" sid="696495095588448" type="System">
+                    <param id="0" name="Variable">TempoMinutos</param>
+                    <param id="1" name="Comparison">2</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-16" name="Wait" sid="945139523258139" type="System">
+                    <param id="0" name="Seconds">2</param>
+                </action>
+                <action id="-7" name="Scroll to position" sid="855668074825137" type="System">
+                    <param id="0" name="X">CheckPX</param>
+                    <param id="1" name="Y">CheckPY</param>
+                </action>
+                <action id="-16" name="Wait" sid="325986505475159" type="System">
+                    <param id="0" name="Seconds">0.5</param>
+                </action>
+                <action id="0" name="Play" sid="466917251788021" type="Audio">
+                    <param id="0" name="Audio file">PortaGeladeiraAbrindo</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="4" name="Set animation" sid="266804359417780" type="Geladeira">
+                    <param id="0" name="Animation">&quot;Abrir&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="-16" name="Wait" sid="888692543042921" type="System">
+                    <param id="0" name="Seconds">0.6</param>
+                </action>
+                <action id="4" name="Set animation" sid="521269136279772" type="Geladeira">
+                    <param id="0" name="Animation">&quot;Normal&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="-3" name="Create object" sid="557913203787871" type="System">
+                    <param id="0" name="Object to create">Player</param>
+                    <param id="1" name="Layer">5</param>
+                    <param id="2" name="X">CheckpX</param>
+                    <param id="3" name="Y">CheckpY</param>
+                </action>
+                <action disabled="1" id="4" name="Set animation" sid="383172517021500" type="Geladeira">
+                    <param id="0" name="Animation">&quot;chekpoint&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="412085986384595">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="227124545312553" type="Player">
+                    <param id="0" name="Object">Geladeira</param>
+                </condition>
+                <condition disabled="1" id="-14" inverted="1" name="Compare variable" sid="837329346998704" type="System">
+                    <param id="0" name="Variable">TempoMinutos</param>
+                    <param id="1" name="Comparison">2</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-8" inverted="1" name="Compare two values" sid="747723625790846" type="System">
+                    <param id="0" name="First value">CheckPX</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Second value">Geladeira.ImagePointX(1)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="582817517110002" type="System">
+                    <param id="0" name="Variable">CheckPX</param>
+                    <param id="1" name="Value">Geladeira.ImagePointX(1)</param>
+                </action>
+                <action id="-9" name="Set value" sid="590850744146541" type="System">
+                    <param id="0" name="Variable">CheckPY</param>
+                    <param id="1" name="Value">geladeira.ImagePointY(1)</param>
+                </action>
+                <action id="4" name="Set animation" sid="165310059523371" type="Geladeira">
+                    <param id="0" name="Animation">&quot;chekpoint&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="0" name="Play" sid="389277468939207" type="Audio">
+                    <param id="0" name="Audio file">Checkpoint</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">-10</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="263802879963374">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="306592117045492" type="System">
+                    <param id="0" name="Interval (seconds)">1.0</param>
+                </condition>
+                <condition id="-14" inverted="1" name="Compare variable" sid="187894660942613" type="System">
+                    <param id="0" name="Variable">TempoMinutos</param>
+                    <param id="1" name="Comparison">2</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="952684821687509" type="guia">
+                    <param id="0" name="Text">TempoMinutos &amp;&quot;:&quot; &amp; TempoSegundos</param>
+                </action>
+                <action id="-11" name="Subtract from" sid="941628552579713" type="System">
+                    <param id="0" name="Variable">TempoSegundos</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="189314668028734">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="129440131209636" type="System">
+                    <param id="0" name="Variable">TempoSegundos</param>
+                    <param id="1" name="Comparison">2</param>
+                    <param id="2" name="Value">10</param>
+                </condition>
+                <condition id="-14" inverted="1" name="Compare variable" sid="431853081960534" type="System">
+                    <param id="0" name="Variable">TempoMinutos</param>
+                    <param id="1" name="Comparison">2</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="301830148338203" type="guia">
+                    <param id="0" name="Text">TempoMinutos &amp;&quot;:0&quot; &amp; TempoSegundos</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="508316302362968">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="440283568896663" type="System">
+                    <param id="0" name="Variable">TempoSegundos</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition disabled="1" id="-14" inverted="1" name="Compare variable" sid="894882768009027" type="System">
+                    <param id="0" name="Variable">TempoMinutos</param>
+                    <param id="1" name="Comparison">2</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="822109739958119" type="System">
+                    <param id="0" name="Variable">TempoSegundos</param>
+                    <param id="1" name="Value">59</param>
+                </action>
+                <action id="-11" name="Subtract from" sid="819200332286807" type="System">
+                    <param id="0" name="Variable">TempoMinutos</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="551227376704393">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="664897173004538" type="System">
+                    <param id="0" name="Variable">TempoMinutos</param>
+                    <param id="1" name="Comparison">2</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="796271040310478" type="System">
+                    <param id="0" name="Object to create">Morte</param>
+                    <param id="1" name="Layer">5</param>
+                    <param id="2" name="X">Player.X</param>
+                    <param id="3" name="Y">Player.y</param>
+                </action>
+                <action id="-7" name="Set size" sid="382188179494716" type="Morte">
+                    <param id="0" name="Width">Player.Width</param>
+                    <param id="1" name="Height">Player.Height</param>
+                </action>
+                <action id="-9" name="Destroy" sid="911013724508522" type="Player" />
+                <action id="-16" name="Wait" sid="787953767094656" type="System">
+                    <param id="0" name="Seconds">2.5</param>
+                </action>
+                <action disabled="1" id="-26" name="Restart layout" sid="331854831287356" type="System" />
+                <action id="-2" name="Go to layout" sid="820041167238057" type="System">
+                    <param id="0" name="Layout">GameOver</param>
+                </action>
+                <action id="6" name="Stop" sid="275822952918676" type="Audio">
+                    <param id="0" name="Tag">&quot;Musica&quot;</param>
+                </action>
+                <action id="-21" name="Reset global variables" sid="179712595276619" type="System" />
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
